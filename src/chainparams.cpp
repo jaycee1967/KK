@@ -23,19 +23,19 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         // The message start string is designed to be unlikely to occur in normal data.
-        pchMessageStart[0] = 0xe4;
+        pchMessageStart[0] = 0xe6;
         pchMessageStart[1] = 0xd4;
         pchMessageStart[2] = 0xe4;
-        pchMessageStart[3] = 0x04;
-        nDefaultPort = 32118;
-        nRPCPort = 32119;
+        pchMessageStart[3] = 0x08;
+        nDefaultPort = 32668;
+        nRPCPort = 32669;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
-        nSubsidyHalvingInterval = 200000;
+        nSubsidyHalvingInterval = 300000;
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
   
-        const char* pszTimestamp = "shoes";
+        const char* pszTimestamp = "Kinky Pool Live 16 Nov 2014";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -46,16 +46,16 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1410084100;
+        genesis.nTime    = 0;
         genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 1140801;
+        genesis.nNonce   = ;
         
         //// debug print
         hashGenesisBlock = genesis.GetHash();
-        //while (hashGenesisBlock > bnProofOfWorkLimit.getuint256()){
-            //if (++genesis.nNonce==0) break;
-            //hashGenesisBlock = genesis.GetHash();
-        //}
+        while (hashGenesisBlock > bnProofOfWorkLimit.getuint256()){
+            if (++genesis.nNonce==0) break;
+            hashGenesisBlock = genesis.GetHash();
+        }
 
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
@@ -63,14 +63,13 @@ public:
         genesis.print();
         
         
-        assert(hashGenesisBlock == uint256("0x0000040927c44149768bb6ffb463e439fb24bd98a6da84e7443bbfa8966f7aab"));
-        assert(genesis.hashMerkleRoot == uint256("0x22ef24b1f7bfd606ba9fa7bdcd7aa7df72ebc1fcbe32a4330c8e47c4d5c688db"));
-
+        assert(hashGenesisBlock == uint256("0x"));
+        assert(genesis.hashMerkleRoot == uint256("0x));
         vSeeds.push_back(CDNSSeedData("178.62.150.165", "188.226.162.76"));
         vSeeds.push_back(CDNSSeedData("108.61.10.90", "62.121.62.174"));
 
 
-        base58Prefixes[PUBKEY_ADDRESS] = 75;
+        base58Prefixes[PUBKEY_ADDRESS] = 45;
         base58Prefixes[SCRIPT_ADDRESS] = 30;
         base58Prefixes[SECRET_KEY] = 224;
 
@@ -109,16 +108,16 @@ class CTestNetParams : public CMainParams {
 public:
     CTestNetParams() {
         // The message start string is designed to be unlikely to occur in normal data.
-        pchMessageStart[0] = 0x01;
+        pchMessageStart[0] = 0x0e;
         pchMessageStart[1] = 0xfe;
-        pchMessageStart[2] = 0xfe;
+        pchMessageStart[2] = 0xde;
         pchMessageStart[3] = 0x05;
-        nDefaultPort = 55534;
-        nRPCPort = 55535;
+        nDefaultPort = 85534;
+        nRPCPort = 85535;
         strDataDir = "testnet";
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1374901773;
+        genesis.nTime = 1404901773;
         genesis.nNonce = 1211565;
         
         
@@ -137,7 +136,7 @@ public:
         vSeeds.clear();
         // vSeeds.push_back(CDNSSeedData("Fetish.test", "test.Fetish.org"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = 130;
+        base58Prefixes[PUBKEY_ADDRESS] = 45;
         base58Prefixes[SCRIPT_ADDRESS] = 30;
         base58Prefixes[SECRET_KEY] = 239;
 
