@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("FETISH");
-    case mBTC: return QString("MilliFETISH (1 / 1,000)");
-    case uBTC: return QString("MicroFETISH (1 / 1,000,000)");
+    case BTC: return QString("KINKY");
+    case mBTC: return QString("MilliKINKY (1 / 1,000)");
+    case uBTC: return QString("MicroKINKY (1 / 1,000,000)");
     default: return QString("???");
     }
 }
