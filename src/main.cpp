@@ -1245,16 +1245,16 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
     return pblock->GetHash();
 }
 
-static const int64 nStartSubsidy = 200 * COIN;
-static const int64 nMinSubsidy = 10 * COIN;
+static const int64 nStartSubsidy = 50 * COIN;
+static const int64 nMinSubsidy = 1 * COIN;
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = nStartSubsidy;
 
-    //giveaway etc
+    //giveaway f0r miners using pool .. to act like Cryptsy Points
     if(nHeight > 9 && nHeight < 11){
-        nSubsidy = 50000000 * COIN;
+        nSubsidy = 21000000 * COIN;
    
     
     return nSubsidy + nFees;
@@ -1275,7 +1275,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 }
 
 static const int64 nTargetTimespan = 240; // 4 minutes
-static const int64 nTargetSpacing = 10; // 10 second minutes
+static const int64 nTargetSpacing = 10; //   minutes
 static const int64 nInterval = nTargetTimespan / nTargetSpacing; // 24 blocks
 
 static const int64 nAveragingInterval = nInterval * 60; // 120 blocks
